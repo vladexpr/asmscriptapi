@@ -7,7 +7,7 @@ Use cases:
 - Compile assemblyscript into WASM/WAT files
 - Generating js/ts bindings
 - Getting compilation statistics
-- Getting compilation errors/warning in a structured way
+- Getting compilation errors/warnings in a structured way
 
 ## Buid and run
 
@@ -32,9 +32,9 @@ npm run lint
 
 ## Getting started
 
-1. Run build and run the application (read above, `npm run build` and `npm run start`)
+1. Build and run the application (read above, `npm run build` and `npm run start`)
 
-2. Prepare a assemblyscript program. The simplest example is, `index.ts`:
+2. Prepare an assemblyscript program. The simplest example is, `index.ts`:
 ```ts
 export function add(a: i32, b: i32): i32 {
   return a + b;
@@ -55,7 +55,7 @@ curl --location 'http://localhost:3000/compile' \
 }'
 ```
 
-5. The response fill be similar to (some sections and fields were removed for simplicity):
+5. The response will be similar to (some sections and fields were removed for simplicity):
 ```json
 {
     "success": true,
@@ -76,7 +76,7 @@ curl --location 'http://localhost:3000/compile' \
 }
 ```
 
-6. Extract string field `files/index.wasm/ascii` from the payload of the responsse, convert it into bytes:
+6. Extract string field `files/index.wasm/ascii` from the payload of the response, convert it into bytes:
 ```ts
 let wasmAscii = response.json().files["build/index.wasm"].ascii;
 
@@ -108,14 +108,14 @@ This service is a dumb proxy to AssemblyScript compiler, so it is possible to pa
 "params": ["index.ts", "--outFile", "index.wasm", "--stats"],
 ```
 
-Files that are "visible" for the compiler should be base64-encoded and places into `files` section of the payload. They should be represented as a map (cannonical name => base64 content):
+Files that are "visible" for the compiler should be base64-encoded and placed into the `files` section of the payload. They should be represented as a map (canonical name => base64 content):
 ```json
 "files": {
   "index.ts": "ZXhwb3J0IGZ1bmN0aW9uIGFkZChhOiBpMzIsIGI6IGkzMik6IGkzMiB7CiAgcmV0dXJuIGEgKyBiOwp9"
 }
 ```
 
-Files, produced by the compiler are put into `files` section of the payload in the response. Binary files are ASCII-encoded, text files are base64-encoded. `stdout` and `stderr` are broadcasted from the compiler "as is". If the compiler can not find a file, the name will appear in the `notFoundFiles` array. `diagnosticMessages` contains array of structured warnings and errors from the compiler. `stats` section consisnts of the statistics returned by the compiler, it does not include HTTP request processing time.
+Files, produced by the compiler are put into the `files` section of the payload in the response. Binary files are ASCII-encoded, and text files are base64-encoded. `stdout` and `stderr` are broadcasted from the compiler "as is". If the compiler can not find a file, the name will appear in the `notFoundFiles` array. `diagnosticMessages` contains an array of structured warnings and errors from the compiler. The `stats` section consists of the statistics returned by the compiler, it does not include HTTP request processing time.
 
 See [tests/index.test.ts](https://github.com/vladexpr/asmscriptapi/blob/main/tests/index.test.ts) for more examples.
 
