@@ -32,4 +32,7 @@ npm run lint
 
 ## Configuration
 
-Configuration is done through environment variables.
+Configuration of the HTTP Server is done through environment variables:
+- `PORT` - default is `3000`
+- `MAX_BODY_SIZE` - default is `100kb`
+- `REQUEST_TIMEOUT` - default is `1s`
