@@ -30,6 +30,17 @@ Run linter
 npm run lint
 ```
 
+## Getting started
+
+1. Run build and run the application (read above, `npm run build` and `npm run start`)
+
+2. Prepare the webassembly program. The simples example is, `index.ts`:
+```ts
+export function add(a: i32, b: i32): i32 {
+  return a + b;
+}
+```
+
 ## Configuration
 
 Configuration of the HTTP Server is done through environment variables:
