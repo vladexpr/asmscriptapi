@@ -48,7 +48,7 @@ app.post("/compile", async (req: Request, res: Response) => {
 
   let { error, stdout, stderr, stats } = await main(req.body.params, {
     readFile: (filename, _basedir) => {
-      let base64Encoded = req.body.files[filename];
+      let base64Encoded = req.body?.files?.[filename];
       if (base64Encoded) {
         return base64Decode(base64Encoded);
       } else {
