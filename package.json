@@ -1,0 +1,42 @@
+{
+  "name": "asmscript2wasm",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "type": "module",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "test_watch": "vitest",
+    "build": "npx tsc",
+    "start": "NODE_ENV=production node dist/index.js",
+    "dev": "nodemon src/index.ts",
+    "lint": "npx prettier . --write"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "assemblyscript": "^0.27.27",
+    "compression": "^1.7.4",
+    "connect-timeout": "^1.9.0",
+    "express": "^4.19.2",
+    "pino": "^9.1.0",
+    "pino-http": "^10.1.0"
+  },
+  "devDependencies": {
+    "@types/compression": "^1.7.5",
+    "@types/connect-timeout": "^0.0.39",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.12.12",
+    "@types/pino": "^7.0.5",
+    "@types/pino-http": "^5.8.4",
+    "nodemon": "^3.1.0",
+    "prettier": "3.2.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5",
+    "vitest": "^1.6.0"
+  }
+}
