@@ -183,8 +183,6 @@ describe("POST /compile", () => {
     let astString = base64Decode(astBase64);
     let ast = JSON.parse(astString);
 
-    console.log(JSON.stringify(ast));
-
     expect(ast).toEqual(expectedAST);
   });
 
