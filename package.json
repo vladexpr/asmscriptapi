@@ -11,7 +11,7 @@
     "test_watch": "vitest",
     "build": "npx tsc",
     "start": "NODE_ENV=production node dist/index.js",
-    "dev": "nodemon src/index.ts",
+    "dev": "nodemon dist/index.js",
     "lint": "npx prettier . --write"
   },
   "keywords": [],

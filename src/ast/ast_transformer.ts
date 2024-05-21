@@ -1,8 +1,8 @@
 import { Range } from "assemblyscript/dist/assemblyscript.js";
 import { Parser } from "types:assemblyscript/src/parser";
-import { NODE_KIND_MAP } from "./node_kind";
-import { extractCommonFlags } from "./common_flags";
-import { TOKENS_MAP } from "./token";
+import { NODE_KIND_MAP } from "./node_kind.js";
+import { extractCommonFlags } from "./common_flags.js";
+import { TOKENS_MAP } from "./token.js";
 
 function replacer(key: any, value: any) {
   if (key == "kind" && Number.isInteger(value)) {
