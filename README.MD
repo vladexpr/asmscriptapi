@@ -36,3 +36,5 @@ Configuration of the HTTP Server is done through environment variables:
 - `PORT` - default is `3000`
 - `MAX_BODY_SIZE` - default is `100kb`
 - `REQUEST_TIMEOUT` - default is `1s`
+
+See [/src/env.ts](https://github.com/vladexpr/asmscriptapi/blob/main/src/env.ts)
